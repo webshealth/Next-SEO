@@ -37,11 +37,11 @@ export default function Home() {
     <>
       <Head>
         <title>Test</title>
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-        {/* <script type="application/ld+json">{JSON.stringify(schema)}</script> */}
+        /> */}
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Head>
       <main className={styles.main}>
         <div style={{ width: "100%", display: "flex" }}>Test</div>
