@@ -116,13 +116,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <html lang="en-GB">
-          <title>Test</title>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
-        </html>
+        <title>Test</title>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
 
         {/* <script type="application/ld+json">{JSON.stringify(schema)}</script> */}
       </Head>
