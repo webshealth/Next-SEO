@@ -54,7 +54,14 @@ export default function Home() {
         datePublished: "2021-01-13T00:00:00.000Z",
         dateModified: "2023-01-13T06:05:12.780Z",
         mainEntityOfPage: {
+          "@type": ["WebPage"],
           "@id": "https://test.coinbureau.dev/review/binance/",
+        },
+        image: {
+          "@type": "ImageObject",
+          url: "https://coinbureau.s3.us-east-2.amazonaws.com/Binance_Ecosystem_jpg_d703e2de06.webp",
+          height: 300,
+          width: 1500,
         },
         publisher: {
           "@type": "Organization",
