@@ -53,9 +53,9 @@ export default function Home() {
           "Binance Review 2023: Pros & Cons and In-Depth Exchange Overview",
         datePublished: "2021-01-13T00:00:00.000Z",
         dateModified: "2023-01-13T06:05:12.780Z",
-        // mainEntityOfPage: {
-        //   "@id": "https://test.coinbureau.dev/review/binance/",
-        // },
+        mainEntityOfPage: {
+          "@id": "https://test.coinbureau.dev/review/binance/",
+        },
         publisher: {
           "@type": "Organization",
           name: "Coin Bureau",
@@ -109,11 +109,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Test</title>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <html lang="en-GB">
+          <title>Test</title>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        </html>
+
         {/* <script type="application/ld+json">{JSON.stringify(schema)}</script> */}
       </Head>
       <main className={styles.main}>
