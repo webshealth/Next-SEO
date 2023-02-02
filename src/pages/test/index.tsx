@@ -3,8 +3,16 @@ import { MouseEventHandler, useEffect, useState } from "react";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
+var convert = require("xml-js");
+const fs = require("fs");
+
 
 export default function Home() {
+  var xml = require("fs").readFileSync("./New CoinBureau.xml", "utf8");
+  var result = convert.xml2json(xml, { compact: true, spaces: 4 });
+  const data = JSON.parse(result);
+  const titles_and_content_dates = [];
+  console.log(data.data.post[0])
   interface Item {
     name: string;
     updateDate: string;
@@ -115,15 +123,7 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Test</title>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-
-        {/* <script type="application/ld+json">{JSON.stringify(schema)}</script> */}
-      </Head>
+    
       <main className={styles.main}>
         <div style={{ width: "100%", display: "flex" }}>Test</div>
       </main>
