@@ -1,45 +1,22 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import Script from 'next/script'
-import { useEffect } from 'react'
-import * as gtag from '../../lib/gtag'
+import { useEffect } from "react";
+import { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import * as gtag from "../../lib/gtag";
 
-const App = ({ Component, pageProps }) => {
-  const router = useRouter()
+const App = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter();
+
   useEffect(() => {
-    const handleRouteChange = (url: any) => {
-      gtag.pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
-  return (
-    <>
-      <Head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-1GZ3X218EX', {
-                page_path: window.location.pathname,
-              });
-            `,
-          }}
-        />
-      </Head>
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-1GZ3X218EX`}
-      />
-      <Component {...pageProps} />
-    </>
-  )
-}
+  return <Component {...pageProps} />;
+};
 
-export default App
+export default App;
