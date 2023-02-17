@@ -18,7 +18,11 @@
     "next": "13.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-gtm-module": "^2.0.11",
     "typescript": "4.9.4",
     "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "@types/react-gtm-module": "^2.0.1"
   }
 }
