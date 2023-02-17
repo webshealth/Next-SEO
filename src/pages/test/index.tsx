@@ -1,13 +1,10 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-export default function Home() {
- 
-
+export default function Test() {
   return (
     <>
-
-      <main >
-        <div style={{ width: "100%", display: "flex" }}>Test</div>
+      <main>
+        <div style={{ width: '100%', display: 'flex' }}>Test</div>
       </main>
     </>
   );
