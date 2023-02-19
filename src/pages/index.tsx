@@ -8,11 +8,13 @@ export default function Newpage() {
 
   const handleClick = () => {
     gtag.event({
-      action: 'click',
-      category: 'button',
-      label: 'my-button',
+      action: 'screen_view',
+      category: 'myAppName',
+      label: 'Home',
       value: 5,
+      debug_mode: true,
     });
+    console.log('Button Click');
   };
 
   return (
@@ -23,7 +25,6 @@ export default function Newpage() {
         onClick={() => {
           router.push('blog');
           handleClick();
-          console.log('Button Click');
         }}
       >
         Button One

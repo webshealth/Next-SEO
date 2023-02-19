@@ -19,15 +19,23 @@ type GTagEvent = {
   category: string;
   label: string;
   value: number;
+  debug_mode: boolean;
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({ action, category, label, value }: GTagEvent) => {
+export const event = ({
+  action,
+  category,
+  label,
+  value,
+  debug_mode,
+}: GTagEvent) => {
   if (typeof window.gtag !== 'undefined') {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
       value: value,
+      debug_mode: debug_mode,
     });
   }
 };
