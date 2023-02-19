@@ -7,14 +7,13 @@ export default function Newpage() {
   const router = useRouter();
 
   const handleClick = () => {
+    // if (typeof window.gtag !== 'undefined') {
     gtag.event({
       action: 'screen_view',
-      category: 'myAppName',
-      label: 'Home',
-      value: 5,
       debug_mode: true,
     });
     console.log('Button Click');
+    // }
   };
 
   return (
@@ -23,7 +22,7 @@ export default function Newpage() {
       <div
         className={styles.one}
         onClick={() => {
-          router.push('blog');
+          // router.push('blog');
           handleClick();
         }}
       >

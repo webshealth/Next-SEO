@@ -23,6 +23,7 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.12",
     "@types/react-gtm-module": "^2.0.1"
   }
 }
