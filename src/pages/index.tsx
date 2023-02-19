@@ -6,15 +6,18 @@ import * as gtag from '../../lib/gtag';
 export default function Newpage() {
   const router = useRouter();
 
-  const handleClick = () => {
-    // if (typeof window.gtag !== 'undefined') {
-    gtag.event({
-      action: 'screen_view',
-      debug_mode: true,
-    });
-    console.log('Button Click');
-    // }
-  };
+  // const handleClick = () => {
+  //   // if (typeof window.gtag !== 'undefined') {
+  //   gtag.event({
+  //     action: 'screen_view',
+  //     category: 'a',
+  //     label: 'b',
+  //     value: 'c',
+  //     // debug_mode: true,
+  //   });
+  //   console.log('Button Click');
+  //   // }
+  // };
 
   return (
     <>
@@ -22,8 +25,7 @@ export default function Newpage() {
       <div
         className={styles.one}
         onClick={() => {
-          // router.push('blog');
-          handleClick();
+          router.push('blog');
         }}
       >
         Button One

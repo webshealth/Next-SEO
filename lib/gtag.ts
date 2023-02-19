@@ -16,14 +16,19 @@ export const pageview = (url: URL) => {
 // };
 type GTagEvent = {
   action: string;
-  debug_mode: boolean;
+  category: string;
+  label: string;
+  value: string;
+  // debug_mode: boolean;
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({ action, debug_mode }: GTagEvent) => {
+export const event = ({ action, category, label, value }: GTagEvent) => {
   // if (typeof window.gtag !== 'undefined') {
   window.gtag('event', action, {
-    debug_mode: debug_mode,
+    category: category,
+    label: label,
+    value: value,
   });
 };
 // };
