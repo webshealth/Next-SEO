@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import styles from './styles.module.css';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic'
 import * as gtag from '../../lib/gtag';
+import Testcomponent from '../../components/testcomponent'
 
 export default function Newpage() {
   const router = useRouter();
@@ -21,6 +23,7 @@ export default function Newpage() {
 
   return (
     <>
+    <Testcomponent></Testcomponent>
       <h1>Home Page</h1>
       <div
         className={styles.one}
