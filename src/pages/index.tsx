@@ -1,9 +1,9 @@
-import Head from 'next/head';
-import styles from './styles.module.css';
-import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic'
-import * as gtag from '../../lib/gtag';
-import Testcomponent from '../../components/testcomponent'
+import Head from "next/head";
+import styles from "./styles.module.css";
+import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+import * as gtag from "../../lib/gtag";
+import Testcomponent from "../../components/testcomponent";
 
 export default function Newpage() {
   const router = useRouter();
@@ -20,15 +20,37 @@ export default function Newpage() {
   //   console.log('Button Click');
   //   // }
   // };
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
 
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://test.coinbureau.dev/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Videos",
+            item: "https://test.coinbureau.dev/videos/",
+          },
+        ],
+      },
+    ],
+  };
   return (
     <>
-    <Testcomponent></Testcomponent>
+      <Testcomponent></Testcomponent>
       <h1>Home Page</h1>
       <div
         className={styles.one}
         onClick={() => {
-          router.push('blog');
+          router.push("blog");
         }}
       >
         Button One
@@ -37,7 +59,7 @@ export default function Newpage() {
       <div
         className={styles.two}
         onClick={() => {
-          router.push('blog');
+          router.push("blog");
         }}
       >
         Button Two
