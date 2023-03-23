@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Experiment, Variant } from "react-optimize";
 import styles from "./styles.module.css";
+import useGoogleOptimize from "@react-hook/google-optimize";
 
 function Test() {
   // function useGoogleOptimize<T>(
@@ -17,11 +18,11 @@ function Test() {
   console.log(variant);
   return (
     <div>
-      <Experiment id="lsAf1p90TZOk2bL9aAm3eA">
+      {/* <Experiment id="lsAf1p90TZOk2bL9aAm3eA">
         <Variant id="0">Original</Variant>
         <Variant id="1">Variant 1</Variant>
         <Variant id="2">Variant 2</Variant>
-      </Experiment> */}
+      </Experiment>  */}
       {variant === null ? "Loading..." : variant ? "A" : "B"}
     </div>
   );
