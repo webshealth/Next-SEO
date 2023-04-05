@@ -26,7 +26,10 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/ab/[id].jsx",
-    "pages/ab/[variantNew]/about.jsx"
+    "pages/ab/[variantNew]/about.jsx",
+    "./src/**/*.ts",
+    "./src/global.d.ts",
+    "components/useOptimizeAB.js"
   ],
   "exclude": ["node_modules"]
 }

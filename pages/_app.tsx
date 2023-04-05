@@ -5,8 +5,11 @@ import { useRouter } from "next/router";
 import TagManager, { TagManagerArgs } from "react-gtm-module";
 import Layout from "../components/layout";
 // import Head from 'next/head';
+import useOptimizeAB from "../components/useOptimizeAB";
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const variant = useOptimizeAB(`${process.env.NEXT_PUBLIC_Experiment_ID}`);
+
   const gtmId = "GTM-KKTXBRJ";
 
   const tagManagerArgs: TagManagerArgs = {

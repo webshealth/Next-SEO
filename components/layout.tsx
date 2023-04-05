@@ -4,6 +4,7 @@ import { Page } from "@vercel/examples-ui";
 import type { LayoutProps } from "@vercel/examples-ui/layout";
 import { GaProvider } from "@lib/useGa";
 import Navbar from "./navbar";
+import Consent from "./consent";
 
 function throwIfSSR() {
   throw new Error("Using GA during SSR is not allowed");
@@ -22,6 +23,7 @@ export default function Layout({ children, ...props }) {
   return (
     <>
       <Navbar />
+      <Consent />
       <Page>
         {/* <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TRACKING_ID}`}
