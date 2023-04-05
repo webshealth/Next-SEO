@@ -5,6 +5,7 @@ import Layout from "@components/layout";
 import { getCurrentExperiment } from "@lib/optimize";
 import { useGa } from "@lib/useGa";
 import { COOKIE_NAME } from "@lib/constants";
+import Head from "next/head";
 
 export default function Marketing({ experiment, variant }) {
   const ga = useGa();
@@ -27,6 +28,15 @@ export default function Marketing({ experiment, variant }) {
       ga("set", "optimize.activate", cookie);
     }
     ga("send", "pageview");
+
+    <Head>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `dataLayer.push({ event: "optimize.activate" });
+                `,
+        }}
+      />
+    </Head>;
   }, [ga]);
 
   //   const experiment = getCurrentExperiment();
