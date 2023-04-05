@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
+import { useEffect } from "react";
+import { AppProps } from "next/app";
+import { useRouter } from "next/router";
 // import * as gtag from '../../lib/gtag';
-import TagManager, { TagManagerArgs } from 'react-gtm-module';
-import Layout from '../../components/layout';
+import TagManager, { TagManagerArgs } from "react-gtm-module";
+import Layout from "../components/layout";
 // import Head from 'next/head';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const gtmId = 'GTM-KKTXBRJ';
+  const gtmId = "GTM-KKTXBRJ";
 
   const tagManagerArgs: TagManagerArgs = {
     gtmId,

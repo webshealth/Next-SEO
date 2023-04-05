@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import styles from './styles.module.css';
-import { useRouter } from 'next/router';
+import Head from "next/head";
+import styles from "./styles.module.css";
+import { useRouter } from "next/router";
 
 export default function Newpage() {
   const router = useRouter();
@@ -11,32 +11,45 @@ export default function Newpage() {
           <a
             className={styles.active}
             onClick={() => {
-              router.push('/');
+              router.push("/ab/");
             }}
           >
             Home
           </a>
           <a
             onClick={() => {
-              router.push('search');
+              router.push("/search");
             }}
           >
             Search
           </a>
           <a
             onClick={() => {
-              router.push('new-page');
+              router.push("/new-page");
             }}
           >
             New Page
           </a>
           <a
-            href="#about"
             onClick={() => {
-              router.push('test');
+              router.push("/test");
             }}
           >
             Test
+          </a>
+          <a
+            onClick={() => {
+              router.push("/marketing");
+            }}
+          >
+            Marketing
+          </a>
+          <a
+            onClick={() => {
+              router.push("/about");
+            }}
+          >
+            About
           </a>
         </div>
 
