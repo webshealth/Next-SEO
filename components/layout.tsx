@@ -5,6 +5,8 @@ import type { LayoutProps } from "@vercel/examples-ui/layout";
 import { GaProvider } from "@lib/useGa";
 import Navbar from "./navbar";
 import Consent from "./consent";
+import { getCookie, getCookies, hasCookie } from "cookies-next";
+import Cookies from "js-cookie";
 
 function throwIfSSR() {
   throw new Error("Using GA during SSR is not allowed");
@@ -18,6 +20,9 @@ function gaHandler() {
 }
 
 export default function Layout({ children, ...props }) {
+  const consentNew = Cookies.get("localConsent");
+  const consent = getCookie("localConsent");
+
   const ga = typeof window === "undefined" ? throwIfSSR : gaHandler;
 
   return (

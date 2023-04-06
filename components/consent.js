@@ -11,7 +11,11 @@ function Consent() {
   const acceptCookie = () => {
     setConsent(true);
     setCookie("localConsent", "true", { maxAge: 60 * 60 * 24 * 365 });
-    console.log("accepring cookies");
+    gtag("consent", "update", {
+      ad_storage: "granted",
+      analytics_storage: "granted",
+    });
+    console.log("accepting cookies");
   };
   const closeP = () => {
     setConsent(true);
@@ -19,6 +23,10 @@ function Consent() {
   };
   const denyCookie = () => {
     setConsent(true);
+    // gtag("consent", "update", {
+    //   ad_storage: "denied",
+    //   analytics_storage: "denied",
+    // });
     setCookie("localConsent", "false", { maxAge: 60 * 60 * 24 * 365 });
     console.log("denying cookie");
   };

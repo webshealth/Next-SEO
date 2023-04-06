@@ -9,6 +9,7 @@ import Head from "next/head";
 
 export default function Marketing({ experiment, variant }) {
   const ga = useGa();
+
   const sendEvent = () => {
     const event = {
       hitType: "event",
@@ -25,7 +26,7 @@ export default function Marketing({ experiment, variant }) {
     console.log(cookie);
     console.log(ga);
     if (ga && cookie) {
-      ga("set", "optimize.activate", cookie);
+      ga("set", "sample_event_new", cookie);
     }
     ga("send", "pageview");
 
