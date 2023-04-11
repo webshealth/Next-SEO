@@ -5,11 +5,9 @@ import Layout from "@components/layout";
 import { getCurrentExperiment } from "@lib/optimize";
 import { useGa } from "@lib/useGa";
 import { COOKIE_NAME } from "@lib/constants";
-import Head from "next/head";
 
 export default function Marketing({ experiment, variant }) {
   const ga = useGa();
-
   const sendEvent = () => {
     const event = {
       hitType: "event",
@@ -26,22 +24,14 @@ export default function Marketing({ experiment, variant }) {
     console.log(cookie);
     console.log(ga);
     if (ga && cookie) {
-      ga("set", "sample_event_new", cookie);
+      ga("event", "google", { value: cookie });
     }
     ga("send", "pageview");
-
-    <Head>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `dataLayer.push({ event: "optimize.activate" });
-                `,
-        }}
-      />
-    </Head>;
   }, [ga]);
 
   //   const experiment = getCurrentExperiment();
   console.log(variant, "experiment.heading");
+  console.log(ga, "ga");
   return (
     <>
       <Text variant="h2" className="mb-6">

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@growthbook/growthbook-react": "^0.15.0",
     "@vercel/examples-ui": "^1.0.4",
     "cookies-next": "^2.1.1",
     "js-cookie": "^3.0.1",
