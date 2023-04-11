@@ -45,7 +45,9 @@ export default function Index() {
       </Text>
       <List className="mb-4">
         <li>
-          <Link href="/ab/about/">/about</Link>
+          <Link className="ab-optimize" href="/ab/about/">
+            /about
+          </Link>
         </li>
         <li>
           <Link href="/ab/marketing/">/marketing</Link>
