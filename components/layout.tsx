@@ -42,9 +42,7 @@ export default function Layout({ children, ...props }) {
           gtag('config', process.env.NEXT_PUBLIC_GOOGLE_TRACKING_ID)
         }}
       /> */}
-        <Script
-          src={`https://www.googleoptimize.com/optimize.js?id=${process.env.NEXT_PUBLIC_OPTIMIZE_CONTAINER_ID}`}
-        />
+        <Script />
         <GaProvider value={ga}>{children}</GaProvider>
       </Page>
     </>

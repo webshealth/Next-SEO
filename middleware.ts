@@ -3,7 +3,7 @@ import { COOKIE_NAME } from "@lib/constants";
 import { getCurrentExperiment } from "@lib/optimize";
 
 export const config = {
-  matcher: ["/ab/marketing", "/ab/about"],
+  matcher: ["/ab/:path*", "/ab/:path*"],
 };
 
 export function middleware(req: NextRequest) {
