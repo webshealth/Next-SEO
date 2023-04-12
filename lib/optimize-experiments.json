@@ -7,25 +7,13 @@
         "name": "original",
         "heading": "Original Heading",
         "id": 0,
-        "weight": 25
+        "weight": 50
       },
       {
         "name": "Variant 1",
         "heading": "Best Heading",
         "id": 1,
-        "weight": 25
-      },
-      {
-        "name": "Variant 2",
-        "heading": "Second Best Heading",
-        "id": 2,
-        "weight": 25
-      },
-      {
-        "name": "Variant 3",
-        "heading": "Third Best Heading",
-        "id": 3,
-        "weight": 25
+        "weight": 50
       }
     ]
   }

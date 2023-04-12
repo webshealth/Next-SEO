@@ -23,10 +23,10 @@ function Consent() {
   };
   const denyCookie = () => {
     setConsent(true);
-    // gtag("consent", "update", {
-    //   ad_storage: "denied",
-    //   analytics_storage: "denied",
-    // });
+    gtag("consent", "update", {
+      ad_storage: "denied",
+      analytics_storage: "denied",
+    });
     setCookie("localConsent", "false", { maxAge: 60 * 60 * 24 * 365 });
     console.log("denying cookie");
   };
