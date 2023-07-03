@@ -1,32 +1,17 @@
-import { Text } from '@vercel/examples-ui';
-import Layout from '@components/layout';
-import { useEffect } from 'react';
-import { useGa } from '@lib/useGa';
-import Cookies from 'js-cookie';
-import { COOKIE_NAME } from '@lib/constants';
-import { getCurrentExperiment } from '@lib/optimize';
+import { Text } from "@vercel/examples-ui";
+import Layout from "@components/layout";
+import { useEffect } from "react";
+import { useGa } from "@lib/useGa";
+import { getCurrentExperiment } from "@lib/optimize";
 
-export default function Marketing({ experiment, variant }) {
+export default function About({ experiment, variant }) {
   const ga = useGa();
-  const sendEvent = () => {
-    const event = {
-      hitType: 'event',
-      eventCategory: 'AB Testing',
-      eventAction: 'Clicked button',
-      eventLabel: 'AB Testing About button',
-    };
-    ga('send', event);
-    console.log('sent event:', event);
-  };
-
   useEffect(() => {
-    console.log('Running 0');
-    ga('event', 'ab_testing', {
-      experiment_name: experiment.name,
-      variant: variant,
+    ga("event", "ab_testing", {
+      experiment_name: experiment.id,
+      variant: "0",
     });
   }, []);
-
   return (
     <>
       <Text variant="h2" className="mb-6">
@@ -40,21 +25,18 @@ export default function Marketing({ experiment, variant }) {
   );
 }
 
-export async function getServerSideProps(params) {
-  console.log(params, 'params');
+export async function getServerSideProps({ params }) {
   const experiment = getCurrentExperiment();
-
-  // const [, variantId] = params.id.split('.');
 
   // Here you could fetch any data related only to the variant
   return {
     props: {
-      message: 'nothing',
+      message: "nothing",
       //   Only send the experiment data required by the page
-      experiment: { name: experiment.name },
-      variant: 'A',
+      experiment: experiment,
+      variant: "0",
     },
   };
 }
 
-Marketing.Layout = Layout;
+About.Layout = Layout;

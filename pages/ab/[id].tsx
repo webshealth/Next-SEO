@@ -1,33 +1,41 @@
-import { useEffect } from 'react';
-import Cookies from 'js-cookie';
-import { Text, Button } from '@vercel/examples-ui';
-import Layout from '@components/layout';
-import { getCurrentExperiment } from '@lib/optimize';
-import { useGa } from '@lib/useGa';
-import { COOKIE_NAME } from '@lib/constants';
+import { useEffect } from "react";
+import Cookies from "js-cookie";
+import { Text, Button } from "@vercel/examples-ui";
+import Layout from "@components/layout";
+import { getCurrentExperiment } from "@lib/optimize";
+import { useGa } from "@lib/useGa";
+import { COOKIE_NAME } from "@lib/constants";
 
 export default function Marketing({ experiment, variant }) {
   const ga = useGa();
   const sendEvent = () => {
-    ga('event', 'sample_name', {
-      app_name: 'myAppName',
-      screen_name: 'Home',
-    });
-
-    console.log('sent event:', event);
+    const event = {
+      hitType: "event",
+      eventCategory: "AB Testing",
+      eventAction: "Clicked button",
+      eventLabel: "AB Testing About button",
+    };
+    ga("send", event);
   };
 
   useEffect(() => {
-    console.log('Running 1');
-    ga('event', 'sample_name', {
-      experiment_name: experiment.name,
-      variant: variant,
+    const cookie = Cookies.get(COOKIE_NAME);
+
+    if (ga && cookie) {
+      ga("event", "google", { value: cookie });
+    }
+    ga("send", "pageview");
+  }, [ga]);
+
+  useEffect(() => {
+    ga("event", "ab_testing", {
+      experiment_name: experiment.id,
+      variant: variant.name,
     });
   }, []);
 
   //   const experiment = getCurrentExperiment();
-  console.log(variant, 'experiment.heading');
-  console.log(ga, 'ga');
+
   return (
     <>
       <Text variant="h2" className="mb-6">
@@ -49,17 +57,16 @@ export default function Marketing({ experiment, variant }) {
 }
 
 export async function getServerSideProps({ params }) {
-  console.log(params.id, 'params');
   const experiment = getCurrentExperiment();
 
-  const [, variantId] = params.id.split('.');
+  const [, variantId] = params.id.split(".");
 
   // Here you could fetch any data related only to the variant
   return {
     props: {
-      message: 'nothing',
+      message: "nothing",
       //   Only send the experiment data required by the page
-      experiment: { name: experiment.name },
+      experiment: experiment,
       variant: experiment.variants.find((v) => String(v.id) === variantId),
     },
   };
