@@ -7,19 +7,13 @@ import { useGa } from "@lib/useGa";
 import { COOKIE_NAME } from "@lib/constants";
 
 export default function Marketing({ experiment, variant }) {
+  console.log("Newest version");
   const ga = useGa();
   const sendEvent = () => {
     ga("event", "ab_testing", {
       experiment_name: experiment.id,
       variant: variant.name,
     });
-    const event = {
-      hitType: "event",
-      eventCategory: "AB Testing",
-      eventAction: "Clicked button",
-      eventLabel: "AB Testing About button",
-    };
-    ga("send", event);
   };
 
   useEffect(() => {
