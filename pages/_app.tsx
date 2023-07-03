@@ -95,6 +95,12 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
   return (
     <>
+      <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-1GZ3X218EX`}
+        ></script>
+      </Head>
       {/* <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
