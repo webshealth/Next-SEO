@@ -9,6 +9,10 @@ import { COOKIE_NAME } from "@lib/constants";
 export default function Marketing({ experiment, variant }) {
   const ga = useGa();
   const sendEvent = () => {
+    ga("event", "ab_testing", {
+      experiment_name: experiment.id,
+      variant: variant.name,
+    });
     const event = {
       hitType: "event",
       eventCategory: "AB Testing",
@@ -27,12 +31,12 @@ export default function Marketing({ experiment, variant }) {
     ga("send", "pageview");
   }, [ga]);
 
-  useEffect(() => {
-    ga("event", "ab_testing", {
-      experiment_name: experiment.id,
-      variant: variant.name,
-    });
-  }, []);
+  // useEffect(() => {
+  //   ga("event", "ab_testing", {
+  //     experiment_name: experiment.id,
+  //     variant: variant.name,
+  //   });
+  // }, []);
 
   //   const experiment = getCurrentExperiment();
 
