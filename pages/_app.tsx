@@ -40,7 +40,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   //   });
   // }, [router.pathname]);
   const consent = getCookie("localConsent");
-  const [newConstent, setNewConstent] = useState(consent);
+  // const [newConstent, setNewConstent] = useState(consent);
 
   console.log(consent, "consent");
   const variant = useOptimizeAB(`${process.env.NEXT_PUBLIC_Experiment_ID}`);
@@ -95,7 +95,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <Script
@@ -110,13 +110,11 @@ const App = ({ Component, pageProps, router }: AppProps) => {
               'ad_storage': 'granted',
               'analytics_storage': 'granted'
             });
-            gtag('event','appJsEvent');
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                      })(window,document,'script','dataLayer','
-GTM-KKTXBRJ');`,
+                      })(window,document,'script','dataLayer','GTM-PR7FDL7');`,
         }}
       />
 
@@ -146,7 +144,7 @@ GTM-KKTXBRJ');`,
           `,
           }}
         />
-      )}
+      )} */}
       {/* <GrowthBookProvider growthbook={growthbook}> */}
       <Layout>
         <Component {...pageProps} />
