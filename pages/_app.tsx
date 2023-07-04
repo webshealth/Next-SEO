@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 // import { useRouter } from "next/router";
-// import * as gtag from "../lib/gtag";
+import * as gtag from "../lib/gtag";
 import TagManager, { TagManagerArgs } from "react-gtm-module";
 import Layout from "../components/layout";
 import Head from "next/head";
@@ -43,28 +43,28 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   // const [newConstent, setNewConstent] = useState(consent);
 
   console.log(consent, "consent");
-  const variant = useOptimizeAB(`${process.env.NEXT_PUBLIC_Experiment_ID}`);
+  // const variant = useOptimizeAB(`${process.env.NEXT_PUBLIC_Experiment_ID}`);
 
-  const gtmId = "GTM-KKTXBRJ";
+  // const gtmId = "GTM-KKTXBRJ";
 
-  const tagManagerArgs: TagManagerArgs = {
-    gtmId,
-  };
+  // const tagManagerArgs: TagManagerArgs = {
+  //   gtmId,
+  // };
   // const router = useRouter();
 
-  useEffect(() => {
-    TagManager.initialize(tagManagerArgs);
-  }, []);
-
   // useEffect(() => {
-  //   const handleRouteChange = (url: URL) => {
-  //     gtag.pageview(url);
-  //   };
-  //   router.events.on("routeChangeComplete", handleRouteChange);
-  //   return () => {
-  //     router.events.off("routeChangeComplete", handleRouteChange);
-  //   };
-  // }, [router.events]);
+  //   TagManager.initialize(tagManagerArgs);
+  // }, []);
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   <Head>
     {/* Global Site Tag (gtag.js) - Google Analytics */}
@@ -80,7 +80,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
 
-            gtag('config', ‘G-1GZ3X218EX‘);
+        
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
