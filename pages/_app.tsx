@@ -68,10 +68,10 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
   return (
     <>
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=G-1GZ3X218EX`}
-      />
+      /> */}
       <Script
         id="gtag-init"
         strategy="afterInteractive"
