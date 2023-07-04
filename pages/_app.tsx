@@ -45,16 +45,16 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   console.log(consent, "consent");
   // const variant = useOptimizeAB(`${process.env.NEXT_PUBLIC_Experiment_ID}`);
 
-  // const gtmId = "GTM-KKTXBRJ";
+  const gtmId = "GTM-KKTXBRJ";
 
-  // const tagManagerArgs: TagManagerArgs = {
-  //   gtmId,
-  // };
+  const tagManagerArgs: TagManagerArgs = {
+    gtmId,
+  };
   // const router = useRouter();
 
-  // useEffect(() => {
-  //   TagManager.initialize(tagManagerArgs);
-  // }, []);
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs);
+  }, []);
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
