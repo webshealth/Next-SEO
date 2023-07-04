@@ -8,7 +8,7 @@ export default function About({ experiment, variant }) {
   const sendEvent = () => {
     ga("event", "ab_testing", {
       experiment_name: experiment.id,
-      variant: variant.name,
+      variant: "0",
     });
   };
   const ga = useGa();
