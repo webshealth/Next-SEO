@@ -12,12 +12,12 @@ export default function About({ experiment, variant }) {
     });
   };
   const ga = useGa();
-  // useEffect(() => {
-  //   ga("event", "ab_testing", {
-  //     experiment_name: experiment.id,
-  //     variant: "0",
-  //   });
-  // }, []);
+  useEffect(() => {
+    ga("event", "ab_testing", {
+      experiment_name: experiment.id,
+      variant: "0",
+    });
+  }, []);
   return (
     <>
       <Text variant="h2" className="mb-6">

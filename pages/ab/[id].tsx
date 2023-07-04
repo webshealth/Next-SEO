@@ -25,12 +25,12 @@ export default function Marketing({ experiment, variant }) {
     ga("send", "pageview");
   }, [ga]);
 
-  // useEffect(() => {
-  //   ga("event", "ab_testing", {
-  //     experiment_name: experiment.id,
-  //     variant: variant.name,
-  //   });
-  // }, []);
+  useEffect(() => {
+    ga("event", "ab_testing", {
+      experiment_name: experiment.id,
+      variant: "1",
+    });
+  }, []);
 
   //   const experiment = getCurrentExperiment();
 
